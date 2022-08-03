@@ -10,8 +10,19 @@ function show(req, res){
     res.render('skills/show.ejs', {
         skill: Skill.getOne(req.params.id)
     })
+} 
+function newSkill(req, res){
+    res.render('skills/new.ejs');
 }
+
+function create(req, res) {
+  Skill.create(req.body)
+  res.redirect('/skills');
+}
+
 module.exports = {
     index,
-    show
+    show,
+    new: newSkill,
+    create
 }
