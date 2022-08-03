@@ -7,7 +7,8 @@ const skills = [
   module.exports = {
     getAll,
     getOne,
-    create
+    create,
+    deleteOne
   };
 
   function getOne(id) {
@@ -24,5 +25,11 @@ const skills = [
     // New todos wouldn't be done :)
     skill.done = false;
     skills.push(skill);
+  }
+
+  function deleteOne(id) {
+    // Find the index based on the id of the todo object
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    skills.splice(idx, 1);
   }
  
